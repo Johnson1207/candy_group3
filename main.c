@@ -1,31 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
-
 #include "function_header.h"
 #include "struct.h"
 
-
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
-#include <allegro5/allegro_primitives.h>
-#include <allegro5/allegro_audio.h>
-#include <allegro5/allegro_acodec.h>
-#include <allegro5/allegro_ttf.h>
-#include <allegro5/allegro_font.h>
-
-#include <windows.h>
-
 // Definition of display size
-#define DISPLAY_WIDTH   680
-#define DISPLAY_HEIGHT  680
-
 int main ()
 {
     form stru;
     stru.score=0;
-
 
     int rows=9, cols=9;
 
@@ -76,10 +56,10 @@ int main ()
 
     // Load bitmap
     bitmap = al_load_bitmap("./color.jpg");
-    bitmap1 = al_load_bitmap("./1.jpg");
-    bitmap2 = al_load_bitmap("./2.jpg");
-    bitmap3 = al_load_bitmap("./3.jpg");
-    bitmap4 = al_load_bitmap("./4.jpg");
+    bitmap1 = al_load_bitmap("./a.jpg");
+    bitmap2 = al_load_bitmap("./b.png");
+    bitmap3 = al_load_bitmap("./c.png");
+    bitmap4 = al_load_bitmap("./d.png");
     bitmap5 = al_load_bitmap("./bom.jpg");
     bitmap6 = al_load_bitmap("./6.jpg");
 
@@ -96,10 +76,13 @@ int main ()
     while(1)
     {
         check(rows, cols, stru.body, stru.emp);
+
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
+
         num_fill(rows, cols, pongFont);
         //system("pause");
         b=break_point(rows, cols, stru.emp);
+
         printf_matrix2("\n\nyour game:\n\n",rows, cols, stru.body);
         printf_matrix2("\n\nyour check:\n\n", rows, cols, stru.emp);
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
@@ -132,10 +115,13 @@ int main ()
         {
             check(rows, cols, stru.body, stru.emp);
             b=break_point(rows, cols, stru.emp);
+
             pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
             num_fill(rows, cols, pongFont);
+
             stru.score=score(rows, cols, stru.score, stru.emp);
             clear(rows, cols, stru.body, stru.emp);
+
             initialize_mat2D(stru.emp, rows, cols);
             printf("\nscore:%d\n",stru.score);
             pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
