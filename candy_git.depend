@@ -339,7 +339,7 @@
 	<allegro5/allegro_font.h>
 	<windows.h>
 
-1547134335 source:c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\main.c
+1547141233 source:c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\main.c
 	"function_header.h"
 	"struct.h"
 
@@ -358,7 +358,7 @@
 
 1547132673 c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\struct.h
 
-1547134142 source:c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\function.c
+1547143130 source:c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\function.c
 	<stdio.h>
 	<stdlib.h>
 	"function_header.h"
@@ -662,4 +662,8 @@
 
 1474359070 c:\allego\allegro-mingw-gcc5.3.0-x86-static-5.2.1.1\include\allegro5\allegro_font.h
 	"allegro5/allegro.h"
+
+1547143130 source:c:\users\owner\desktop\code ªº«s¶Ë\candyg3\candy_group3\mouse.c
+	"function_header.h"
+	"struct.h"
 

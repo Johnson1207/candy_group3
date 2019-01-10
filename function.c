@@ -133,20 +133,12 @@ void free_matrix(int rows, int **mat)
 int **change(int r, int c, int **mat, int **emp)
 {
     int **a=create_matrix2(r,c);
-
     int x1=0, y1=0, x2=0, y2=0;
-
+    int xxx=0,yyy=0;
     int b;
 
-    printf ("Enter the row of the face you wanna move:");
-    scanf ("%d",&x1);
-    printf ("Enter the col of the face you wanna move:");
-    scanf ("%d",&y1);
-
-    printf ("Enter the row of the position you wanna move to:");
-    scanf ("%d",&x2);
-    printf ("Enter the col of the position you wanna move to:");
-    scanf ("%d",&y2);
+    mouse(&x1,&y1);
+    mouse(&x2,&y2);
 
     if( (x1==x2 && (y1-y2==1 || y2-y1==1)) || (y1==y2 && (x1-x2==1 ||x2-x1==1)))
     {

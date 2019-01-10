@@ -23,7 +23,6 @@ int main ()
     printf("How many times you want to try?");
     scanf("%d", &times);
 
-
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_BITMAP* bitmap = NULL;
     ALLEGRO_BITMAP* bitmap1 = NULL;
@@ -31,14 +30,10 @@ int main ()
     ALLEGRO_BITMAP* bitmap3 = NULL;
     ALLEGRO_BITMAP* bitmap4 = NULL;
     ALLEGRO_BITMAP* bitmap5 = NULL;
-    ALLEGRO_BITMAP* bitmap6 = NULL;
-    //ALLEGRO_SAMPLE *background = NULL; /* pointer to sound file */
+    ALLEGRO_BITMAP* bitmap6 = NULL;//ALLEGRO_SAMPLE *background = NULL; /* pointer to sound file */
     ALLEGRO_FONT *pongFont = NULL; /* pointer to Font file */
     ALLEGRO_KEYBOARD_STATE KBstate;
     //ALLEGRO_MOUSE_STATE MSstate;
-
-
-
 
     // Initialize Allegro
     al_init();
