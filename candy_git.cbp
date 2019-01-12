@@ -69,7 +69,10 @@
 		<Unit filename="function.c">
 			<Option compilerVar="CC" />
 		</Unit>
+<<<<<<< HEAD
 		<Unit filename="function_header.h" />
+=======
+>>>>>>> fowl
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
