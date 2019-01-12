@@ -16,9 +16,11 @@ int main ()
 
     stru.body = create_matrix2(rows, cols);
     stru.emp = create_matrix2(rows, cols);
+    stru.fun = create_matrix2(rows, cols);
 
     random_mat2D(stru.body, rows, cols);
     initialize_mat2D(stru.emp, rows, cols);
+    initialize_mat2D(stru.fun, rows, cols);
 
     printf("How many times you want to try?");
     scanf("%d", &times);
@@ -70,7 +72,7 @@ int main ()
 
     while(1)
     {
-        check(rows, cols, stru.body, stru.emp);
+        check(rows, cols, stru.body, stru.emp, stru.fun);
 
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
 
@@ -102,13 +104,13 @@ int main ()
 
     while(t != times)
     {
-        change(rows, cols, stru.body, stru.emp);
+        change(rows, cols, stru.body, stru.emp, stru.fun);
 
         t++;
 
         while(1)
         {
-            check(rows, cols, stru.body, stru.emp);
+            check(rows, cols, stru.body, stru.emp, stru.fun);
             b=break_point(rows, cols, stru.emp);
 
             pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
@@ -154,8 +156,8 @@ int main ()
     }
 
     form a[10];
-    int num ;
-    char nam ;
+    int num=NULL ;
+    char nam=NULL ;
     time_t timep;
     struct tm *p;
 
@@ -197,6 +199,7 @@ int main ()
 
     free_matrix(rows, stru.body);
     free_matrix(rows, stru.emp);
+    free_matrix(rows, stru.fun);
 
     system("pause");
 
