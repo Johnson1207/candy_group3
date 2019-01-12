@@ -172,6 +172,8 @@ int main ()
     a[5].time[1]=1+p->tm_mon;
     a[5].time[2]=p->tm_mday;
     a[5].time[3]=p->tm_hour+8;
+    if(a[5].time[3]>=24)
+        a[5].time[3]=a[5].time[3]-24;
     a[5].time[4]=p->tm_min;
     a[5].time[5]=p->tm_sec;
 
