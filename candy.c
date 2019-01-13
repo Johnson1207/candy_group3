@@ -50,7 +50,7 @@ int **check(int r, int c, int **body, int **emp, int **fun)
     {
         for(j=0; j<c-2; j++)
         {
-            if (  (body[k][j]== body[k][j+1])  &&  (body[k][j+1]==body[k][j+2])  )/*��s����ˬd*/
+            if (  (body[k][j]== body[k][j+1])  &&  (body[k][j+1]==body[k][j+2])  )/*check in row*/
             {
                 if(body[k][j+2]==body[k][j+3])
                 {
@@ -67,10 +67,10 @@ int **check(int r, int c, int **body, int **emp, int **fun)
                     emp[k][j+1]=1;
                     emp[k][j+2]=1;
                     emp[k][j+3]=1;
-                    //check_fun(r,c,emp,fun,k,j);
-                    //check_fun(r,c,emp,fun,k,j+1);
-                    //check_fun(r,c,emp,fun,k,j+2);
-                    //check_fun(r,c,emp,fun,k,j+3);
+                    check_fun(r,c,emp,fun,k,j);
+                    check_fun(r,c,emp,fun,k,j+1);
+                    check_fun(r,c,emp,fun,k,j+2);
+                    check_fun(r,c,emp,fun,k,j+3);
                     fun[k][j+1]=1;
                 }
                 else
@@ -78,9 +78,9 @@ int **check(int r, int c, int **body, int **emp, int **fun)
                     emp[k][j]=1;
                     emp[k][j+1]=1;
                     emp[k][j+2]=1;
-                    //check_fun(r,c,emp,fun,k,j);
-                    //check_fun(r,c,emp,fun,k,j+1);
-                    //check_fun(r,c,emp,fun,k,j+2);
+                    check_fun(r,c,emp,fun,k,j);
+                    check_fun(r,c,emp,fun,k,j+1);
+                    check_fun(r,c,emp,fun,k,j+2);
                     fun[k][j]=5;
                     fun[k][j+1]=5;
                     fun[k][j+2]=5;
@@ -141,66 +141,69 @@ int **check(int r, int c, int **body, int **emp, int **fun)
 int **check_fun(int r,int c,int **emp,int **fun,int k,int j)
 {
     int a,b;
-    if(fun[k][j] == 1)/*���*/
+    if(fun[k][j] == 1)/*row_strip*/
     {
+        fun[k][j]=0;
         for(a=0; a<r; a++)
         {
             emp[k][a]=1;
-            //check_fun(r,c,emp,fun,k,a);
+            check_fun(r,c,emp,fun,k,a);
         }
     }
-    if(fun[k][j] == 2)/*����*/
+    if(fun[k][j] == 2)/*col_strip*/
     {
+        fun[k][j]=0;
         for(a=0; a<r; a++)
         {
             emp[a][j]=1;
-            //check_fun(r,c,emp,fun,a,j);
+            check_fun(r,c,emp,fun,a,j);
         }
     }
-    if(fun[k][j] == 3)/*�]*/
+    if(fun[k][j] == 3)/*wrap*/
     {
+        fun[k][j]=0;
         emp[k][j]=1;
-        //check_fun(r,c,emp,fun,k,j);
+        check_fun(r,c,emp,fun,k,j);
 
         if( (k-1>=0) && (j-1>=0))
         {
             emp[k-1][j-1]=1;
-            //check_fun(r,c,emp,fun,k-1,j-1);
+            check_fun(r,c,emp,fun,k-1,j-1);
         }
         if( (k-1>=0) && (j+1<=c))
         {
             emp[k-1][j+1]=1;
-            //check_fun(r,c,emp,fun,k-1,j-1);
+            check_fun(r,c,emp,fun,k-1,j-1);
         }
         if( (k+1<=r) && (j+1<=c))
         {
             emp[k+1][j+1]=1;
-            //check_fun(r,c,emp,fun,k+1,j+1);
+            check_fun(r,c,emp,fun,k+1,j+1);
         }
         if( (k+1<=r) && (j-1>=0))
         {
             emp[k+1][j-1]=1;
-            //check_fun(r,c,emp,fun,k+1,j-1);
+            check_fun(r,c,emp,fun,k+1,j-1);
         }
         if(j-1>=0)
         {
             emp[k][j-1]=1;
-            //check_fun(r,c,emp,fun,k,j-1);
+            check_fun(r,c,emp,fun,k,j-1);
         }
         if(k-1>=0)
         {
             emp[k-1][j]=1;
-            //check_fun(r,c,emp,fun,k-1,j);
+            check_fun(r,c,emp,fun,k-1,j);
         }
         if(j+1<=c)
         {
             emp[k][j+1]=1;
-            //check_fun(r,c,emp,fun,k,j+1);
+            check_fun(r,c,emp,fun,k,j+1);
         }
         if(k+1<=r)
         {
             emp[k+1][j]=1;
-            //check_fun(r,c,emp,fun,k+1,j);
+            check_fun(r,c,emp,fun,k+1,j);
         }
     }
     return emp;

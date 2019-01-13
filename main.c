@@ -72,6 +72,7 @@ int main ()
 
     while(1)
     {
+
         check(rows, cols, stru.body, stru.emp, stru.fun);
 
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
@@ -82,6 +83,7 @@ int main ()
 
         printf_matrix2("\n\nyour game:\n\n",rows, cols, stru.body);
         printf_matrix2("\n\nyour check:\n\n", rows, cols, stru.emp);
+        printf_matrix2("\n\nyour function:\n\n", rows, cols, stru.fun);
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
         num_fill(rows, cols, pongFont);
         //system("pause");
@@ -90,6 +92,7 @@ int main ()
         initialize_mat2D(stru.emp, rows, cols);
         printf_matrix2("\n\nyour game:\n\n",rows, cols, stru.body);
         printf_matrix2("\n\nyour check:\n\n",rows, cols, stru.emp);
+        printf_matrix2("\n\nyour function:\n\n", rows, cols, stru.fun);
         printf("\nscore:%d\n",stru.score);
         pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
         num_fill(rows, cols, pongFont);
