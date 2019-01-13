@@ -37,4 +37,6 @@ int **refill(int r, int c, int **body, int **fun);
 int score(int r, int c, int score, int **emp);
 int break_point(int r, int c, int **emp);
 int mouse(int *x, int *y);
+int **era(int **fun,int k,int j);
+int **chaFun(int r,int c,int **fun);
 

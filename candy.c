@@ -64,22 +64,32 @@ int **check(int r, int c, int **body, int **emp, int **fun)
                 {
                     if(body[k][j+3]==body[k][j+4])
                     {
+                        //j=j+4;
                         emp[k][j]=1;
                         emp[k][j+1]=1;
                         emp[k][j+2]=1;
                         emp[k][j+3]=1;
                         emp[k][j+4]=1;
+                        check_fun(r,c,emp,fun,k,j);
+                        check_fun(r,c,emp,fun,k,j+1);
+                        check_fun(r,c,emp,fun,k,j+2);
+                        check_fun(r,c,emp,fun,k,j+3);
+                        check_fun(r,c,emp,fun,k,j+4);
                         fun[k][j+2]=4;
                     }
-                    emp[k][j]=1;
-                    emp[k][j+1]=1;
-                    emp[k][j+2]=1;
-                    emp[k][j+3]=1;
-                    check_fun(r,c,emp,fun,k,j);
-                    check_fun(r,c,emp,fun,k,j+1);
-                    check_fun(r,c,emp,fun,k,j+2);
-                    check_fun(r,c,emp,fun,k,j+3);
-                    fun[k][j+1]=1;
+                    else
+                    {
+                        //j=j+3;
+                        emp[k][j]=1;
+                        emp[k][j+1]=1;
+                        emp[k][j+2]=1;
+                        emp[k][j+3]=1;
+                        check_fun(r,c,emp,fun,k,j);
+                        check_fun(r,c,emp,fun,k,j+1);
+                        check_fun(r,c,emp,fun,k,j+2);
+                        check_fun(r,c,emp,fun,k,j+3);
+                        fun[k][j+1]=1;
+                    }
                 }
                 else
                 {
@@ -104,14 +114,30 @@ int **check(int r, int c, int **body, int **emp, int **fun)
             {
                 if(body[j+2][k]==body[j+3][k])
                 {
-                    emp[j][k]=1;
-                    emp[j+1][k]=1;
-                    emp[j+2][k]=1;
-                    emp[j+3][k]=1;
-                    fun[j+1][k]=2;
+                    if(body[j+3][k]==body[j+4][k])
+                    {
+                        //j=j+4;
+                        emp[j][k]=1;
+                        emp[j+1][k]=1;
+                        emp[j+2][k]=1;
+                        emp[j+3][k]=1;
+                        emp[j+4][k]=1;
+                        fun[j+1][k]=4;
+                    }
+                    else
+                    {
+                        //j=j+3;
+                        emp[j][k]=1;
+                        emp[j+1][k]=1;
+                        emp[j+2][k]=1;
+                        emp[j+3][k]=1;
+                        fun[j+1][k]=2;
+                    }
+
                 }
                 else if(fun[j][k]==5)
                 {
+                    era(fun,j,k);
                     emp[j][k]=1;
                     emp[j+1][k]=1;
                     emp[j+2][k]=1;
@@ -119,6 +145,7 @@ int **check(int r, int c, int **body, int **emp, int **fun)
                 }
                 else if(fun[j+1][k]==5)
                 {
+                    era(fun,j+1,k);
                     emp[j][k]=1;
                     emp[j+1][k]=1;
                     emp[j+2][k]=1;
@@ -126,6 +153,7 @@ int **check(int r, int c, int **body, int **emp, int **fun)
                 }
                 else if(fun[j+2][k]==5)
                 {
+                    era(fun,j+2,k);
                     emp[j][k]=1;
                     emp[j+1][k]=1;
                     emp[j+2][k]=1;
@@ -143,7 +171,52 @@ int **check(int r, int c, int **body, int **emp, int **fun)
         }
 
     }
+    //chaFun(r,c,fun);
+
     return emp;
+}
+
+int **era(int **fun,int k,int j)
+{
+    fun[k][j]=0;
+    fun[k][j+1]=0;
+    fun[k][j+2]=0;
+
+    return fun ;
+}
+
+int **chaFun(int r,int c,int **fun)
+{
+    int k,j;
+
+    for(k=0;k<r;k++)
+    {
+        for(j=0;j<c;j++)
+        {
+            if(fun[k][j]==11)
+            {
+                fun[k][j]==1;
+            }
+            else if(fun[k][j]==12)
+            {
+                fun[k][j]==2;
+            }
+            else if(fun[k][j]==13)
+            {
+                fun[k][j]==2;
+            }
+            else if(fun[k][j]==14)
+            {
+                fun[k][j]==2;
+            }
+            else if(fun[k][j]==5)
+            {
+                fun[k][j]==0;
+            }
+        }
+    }
+
+    return fun;
 }
 
 int **check_fun(int r,int c,int **emp,int **fun,int k,int j)
@@ -216,6 +289,8 @@ int **check_fun(int r,int c,int **emp,int **fun,int k,int j)
     }
     return emp;
 }
+
+
 
 int **clear(int r, int c, int **body, int **emp)
 {

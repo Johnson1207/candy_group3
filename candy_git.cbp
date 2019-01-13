@@ -13,11 +13,11 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="D:/allegro/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/include" />
+					<Add directory="../../../../../../allego/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/include" />
 				</Compiler>
 				<Linker>
-					<Add option="-static-libgcc" />
 					<Add option="-static" />
+					<Add option="-static-libgcc" />
 					<Add library="liballegro_monolith-static.a" />
 					<Add library="libvorbisfile.a" />
 					<Add library="libvorbis.a" />
@@ -46,7 +46,7 @@
 					<Add library="libuuid.a" />
 					<Add library="libcomdlg32.a" />
 					<Add library="libadvapi32.a" />
-					<Add directory="D:/allegro/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/lib" />
+					<Add directory="../../../../../../allego/allegro-mingw-gcc5.3.0-x86-static-5.2.1.1/lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -66,9 +66,6 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="candy.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="checkType.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="function.c">
