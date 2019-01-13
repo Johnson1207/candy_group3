@@ -17,6 +17,10 @@ int **change(int r, int c, int **mat, int **emp, int **fun)
         mat[y1][x1] = mat[y2][x2];
         mat[y2][x2] = a[y1][x1];
 
+        a[y1][x1] = fun[y1][x1];
+        fun[y1][x1] = fun[y2][x2];
+        fun[y2][x2] = a[y1][x1];
+
         check(r, c, mat, emp, fun);
         b=break_point(r, c, emp);
         initialize_mat2D(emp, r, c);
@@ -28,6 +32,10 @@ int **change(int r, int c, int **mat, int **emp, int **fun)
             a[y1][x1] = mat[y1][x1];
             mat[y1][x1] = mat[y2][x2];
             mat[y2][x2] = a[y1][x1];
+
+            a[y1][x1] = fun[y1][x1];
+            fun[y1][x1] = fun[y2][x2];
+            fun[y2][x2] = a[y1][x1];
 
             change(r, c, mat, emp, fun);
         }
@@ -225,7 +233,7 @@ int **clear(int r, int c, int **body, int **emp)
     return body;
 }
 
-int **refill(int r, int c, int **body, int **emp)
+int **refill(int r, int c, int **body, int **fun)
 {
     int i,j;
     for(i=0; i<r; i++)
@@ -237,8 +245,10 @@ int **refill(int r, int c, int **body, int **emp)
                 for(i=i; i>0; i--)
                 {
                     body[i][j]=body[i-1][j];
+                    fun[i][j]=fun[i-1][j];
                 }
                 body[i][j]=rand()%4+1;
+                fun[i][j]=0;
             }
         }
     }

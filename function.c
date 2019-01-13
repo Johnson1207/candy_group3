@@ -92,7 +92,7 @@ void pic_fill(int **a, int **f, int m, int n,
         {
             al_draw_textf( pongFont, al_map_rgb(55, 55, 255), 60, 95+ 55*j, -1, "%d",j);
 
-            if( (a[i][j] == 1) && (f[i][j] == 0))
+            if( ((a[i][j] == 1) && (f[i][j] == 0)) || ((a[i][j] == 1) && (f[i][j] == 5)))
                 al_draw_bitmap(r, 55*j+90, 55*i+90, 0);
             if( (a[i][j] == 1) && (f[i][j] == 1))
                 al_draw_bitmap(r1, 55*j+90, 55*i+90, 0);
@@ -101,7 +101,7 @@ void pic_fill(int **a, int **f, int m, int n,
             if( (a[i][j] == 1) && (f[i][j] == 3))
                 al_draw_bitmap(r3, 55*j+90, 55*i+90, 0);
 
-            if( (a[i][j] == 2) && (f[i][j] == 0))
+            if( ((a[i][j] == 2) && (f[i][j] == 0)) || ((a[i][j] == 2) && (f[i][j] == 5)))
                 al_draw_bitmap(o, 55*j+90, 55*i+90, 0);
             if( (a[i][j] == 2) && (f[i][j] == 1))
                 al_draw_bitmap(o1, 55*j+90, 55*i+90, 0);
@@ -110,7 +110,7 @@ void pic_fill(int **a, int **f, int m, int n,
             if( (a[i][j] == 2) && (f[i][j] == 3))
                 al_draw_bitmap(o3, 55*j+90, 55*i+90, 0);
 
-            if( (a[i][j] == 3) && (f[i][j] == 0))
+            if( ((a[i][j] == 3) && (f[i][j] == 0)) || ((a[i][j] == 3) && (f[i][j] == 5)))
                 al_draw_bitmap(p, 55*j+90, 55*i+90, 0);
             if( (a[i][j] == 3) && (f[i][j] == 1))
                 al_draw_bitmap(p1, 55*j+90, 55*i+90, 0);
@@ -119,7 +119,7 @@ void pic_fill(int **a, int **f, int m, int n,
             if( (a[i][j] == 3) && (f[i][j] == 3))
                 al_draw_bitmap(p3, 55*j+90, 55*i+90, 0);
 
-            if( (a[i][j] == 4) && (f[i][j] == 0))
+            if( ((a[i][j] == 4) && (f[i][j] == 0)) || ((a[i][j] == 4) && (f[i][j] == 5)))
                 al_draw_bitmap(g, 55*j+90, 55*i+90, 0);
             if( (a[i][j] == 4) && (f[i][j] == 1))
                 al_draw_bitmap(g1, 55*j+90, 55*i+90, 0);

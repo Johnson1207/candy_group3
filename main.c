@@ -116,11 +116,12 @@ int main ()
 
         printf_matrix2("\n\nyour game:\n\n",rows, cols, stru.body);
         printf_matrix2("\n\nyour check:\n\n", rows, cols, stru.emp);
-        pic_fill(stru.body, stru.fun, rows, cols,
+        printf_matrix2("\n\nyour check:\n\n", rows, cols, stru.fun);
+        /*pic_fill(stru.body, stru.fun, rows, cols,
                  bitmap, red, orange, purple, green, boom, pongFont,
                  stru.score, times-t,
                  red_1, red_2, red_3, orange_1, orange_2, orange_3,
-                 purple_1, purple_2, purple_3, green_1, green_2, green_3);
+                 purple_1, purple_2, purple_3, green_1, green_2, green_3);*/
         num_fill(rows, cols, pongFont);
         //system("pause");
         stru.score=score(rows, cols, stru.score, stru.emp);
@@ -137,9 +138,9 @@ int main ()
                  purple_1, purple_2, purple_3, green_1, green_2, green_3);
         //num_fill(rows, cols, pongFont);
         //system("pause");
-        refill(rows, cols, stru.body, stru.emp);
+        refill(rows, cols, stru.body, stru.fun);
 
-        //system("pause");
+        system("pause");
 
         if(b==0)
             break;
@@ -156,11 +157,11 @@ int main ()
             check(rows, cols, stru.body, stru.emp, stru.fun);
             b=break_point(rows, cols, stru.emp);
 
-            pic_fill(stru.body, stru.fun, rows, cols,
+           /* pic_fill(stru.body, stru.fun, rows, cols,
                      bitmap, red, orange, purple, green, boom, pongFont,
                      stru.score, times-t,
                      red_1, red_2, red_3, orange_1, orange_2, orange_3,
-                     purple_1, purple_2, purple_3, green_1, green_2, green_3);
+                     purple_1, purple_2, purple_3, green_1, green_2, green_3);*/
             //num_fill(rows, cols, pongFont);
 
             stru.score=score(rows, cols, stru.score, stru.emp);
@@ -174,7 +175,7 @@ int main ()
                      red_1, red_2, red_3, orange_1, orange_2, orange_3,
                      purple_1, purple_2, purple_3, green_1, green_2, green_3);
             //num_fill(rows, cols, pongFont);
-            refill(rows, cols, stru.body, stru.emp);
+            refill(rows, cols, stru.body, stru.fun);
             pic_fill(stru.body, stru.fun, rows, cols,
                      bitmap, red, orange, purple, green, boom, pongFont,
                      stru.score, times-t,
