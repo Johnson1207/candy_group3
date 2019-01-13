@@ -24,6 +24,7 @@ void num_fill(int m, int n, ALLEGRO_FONT *pongFont);
 void free_matrix(int rows, int **mat);
 int **change(int r, int c, int **mat, int **emp, int **fun);
 int **check(int r, int c, int **body, int **emp, int **fun);
+int **check_fun(int r,int c,int **emp,int **fun,int k,int j);
 int **clear(int r, int c, int **body, int **emp);
 int **refill(int r, int c, int **body, int **emp);
 int score(int r, int c, int score, int **emp);
