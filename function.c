@@ -71,7 +71,14 @@ void initialize_mat2D(int **a, int rows, int cols)
     }
 }
 
-void pic_fill(int **a, int m, int n, ALLEGRO_BITMAP* b, ALLEGRO_BITMAP* b1, ALLEGRO_BITMAP* b2, ALLEGRO_BITMAP* b3, ALLEGRO_BITMAP* b4, ALLEGRO_BITMAP* b5, ALLEGRO_FONT *pongFont, int score, int step)
+void pic_fill(int **a, int **f, int m, int n,
+              ALLEGRO_BITMAP* b, ALLEGRO_BITMAP* r, ALLEGRO_BITMAP* o, ALLEGRO_BITMAP* p,
+              ALLEGRO_BITMAP* g, ALLEGRO_BITMAP* b5, ALLEGRO_FONT *pongFont,
+              int score, int step,
+              ALLEGRO_BITMAP* r1, ALLEGRO_BITMAP* r2, ALLEGRO_BITMAP* r3,
+              ALLEGRO_BITMAP* o1, ALLEGRO_BITMAP* o2, ALLEGRO_BITMAP* o3,
+              ALLEGRO_BITMAP* p1, ALLEGRO_BITMAP* p2, ALLEGRO_BITMAP* p3,
+              ALLEGRO_BITMAP* g1, ALLEGRO_BITMAP* g2, ALLEGRO_BITMAP* g3)
 {
     int i=0, j=0;
 
@@ -85,14 +92,41 @@ void pic_fill(int **a, int m, int n, ALLEGRO_BITMAP* b, ALLEGRO_BITMAP* b1, ALLE
         {
             al_draw_textf( pongFont, al_map_rgb(55, 55, 255), 60, 95+ 55*j, -1, "%d",j);
 
-            if(a[i][j] == 1)
-                al_draw_bitmap(b1, 55*j+90, 55*i+90, 0);
-            if(a[i][j] == 2)
-                al_draw_bitmap(b2, 55*j+90, 55*i+90, 0);
-            if(a[i][j] == 3)
-                al_draw_bitmap(b3, 55*j+90, 55*i+90, 0);
-            if(a[i][j] == 4)
-                al_draw_bitmap(b4, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 1) && (f[i][j] == 0))
+                al_draw_bitmap(r, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 1) && (f[i][j] == 1))
+                al_draw_bitmap(r1, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 1) && (f[i][j] == 2))
+                al_draw_bitmap(r2, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 1) && (f[i][j] == 3))
+                al_draw_bitmap(r3, 55*j+90, 55*i+90, 0);
+
+            if( (a[i][j] == 2) && (f[i][j] == 0))
+                al_draw_bitmap(o, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 2) && (f[i][j] == 1))
+                al_draw_bitmap(o1, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 2) && (f[i][j] == 2))
+                al_draw_bitmap(o2, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 2) && (f[i][j] == 3))
+                al_draw_bitmap(o3, 55*j+90, 55*i+90, 0);
+
+            if( (a[i][j] == 3) && (f[i][j] == 0))
+                al_draw_bitmap(p, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 3) && (f[i][j] == 1))
+                al_draw_bitmap(p1, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 3) && (f[i][j] == 2))
+                al_draw_bitmap(p2, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 3) && (f[i][j] == 3))
+                al_draw_bitmap(p3, 55*j+90, 55*i+90, 0);
+
+            if( (a[i][j] == 4) && (f[i][j] == 0))
+                al_draw_bitmap(g, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 4) && (f[i][j] == 1))
+                al_draw_bitmap(g1, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 4) && (f[i][j] == 2))
+                al_draw_bitmap(g2, 55*j+90, 55*i+90, 0);
+            if( (a[i][j] == 4) && (f[i][j] == 3))
+                al_draw_bitmap(g3, 55*j+90, 55*i+90, 0);
             if(a[i][j] == 0)
                 al_draw_bitmap(b5, 55*j+90, 55*i+90, 0);
         }
@@ -126,8 +160,6 @@ void free_matrix(int rows, int **mat)
         free(mat[i]);
     free(mat);
 }
-
-
 
 void sort(form a[])
 {

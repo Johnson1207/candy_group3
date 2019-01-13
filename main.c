@@ -27,12 +27,24 @@ int main ()
 
     ALLEGRO_DISPLAY* display = NULL;
     ALLEGRO_BITMAP* bitmap = NULL;
-    ALLEGRO_BITMAP* bitmap1 = NULL;
-    ALLEGRO_BITMAP* bitmap2 = NULL;
-    ALLEGRO_BITMAP* bitmap3 = NULL;
-    ALLEGRO_BITMAP* bitmap4 = NULL;
-    ALLEGRO_BITMAP* bitmap5 = NULL;
-    ALLEGRO_BITMAP* bitmap6 = NULL;//ALLEGRO_SAMPLE *background = NULL; /* pointer to sound file */
+    ALLEGRO_BITMAP* red = NULL;
+    ALLEGRO_BITMAP* red_1 = NULL;
+    ALLEGRO_BITMAP* red_2 = NULL;
+    ALLEGRO_BITMAP* red_3 = NULL;
+    ALLEGRO_BITMAP* orange = NULL;
+    ALLEGRO_BITMAP* orange_1 = NULL;
+    ALLEGRO_BITMAP* orange_2 = NULL;
+    ALLEGRO_BITMAP* orange_3 = NULL;
+    ALLEGRO_BITMAP* purple = NULL;
+    ALLEGRO_BITMAP* purple_1 = NULL;
+    ALLEGRO_BITMAP* purple_2 = NULL;
+    ALLEGRO_BITMAP* purple_3 = NULL;
+    ALLEGRO_BITMAP* green = NULL;
+    ALLEGRO_BITMAP* green_1 = NULL;
+    ALLEGRO_BITMAP* green_2 = NULL;
+    ALLEGRO_BITMAP* green_3 = NULL;
+    ALLEGRO_BITMAP* boom = NULL;
+    ALLEGRO_BITMAP* over = NULL;//ALLEGRO_SAMPLE *background = NULL; /* pointer to sound file */
     ALLEGRO_FONT *pongFont = NULL; /* pointer to Font file */
     ALLEGRO_KEYBOARD_STATE KBstate;
     //ALLEGRO_MOUSE_STATE MSstate;
@@ -53,12 +65,24 @@ int main ()
 
     // Load bitmap
     bitmap = al_load_bitmap("./color.jpg");
-    bitmap1 = al_load_bitmap("./a.jpg");
-    bitmap2 = al_load_bitmap("./b.png");
-    bitmap3 = al_load_bitmap("./c.png");
-    bitmap4 = al_load_bitmap("./d.png");
-    bitmap5 = al_load_bitmap("./bom.jpg");
-    bitmap6 = al_load_bitmap("./6.jpg");
+    red = al_load_bitmap("./red.png");
+    red_1 = al_load_bitmap("./red_1.png");
+    red_2 = al_load_bitmap("./red_2.png");
+    red_3 = al_load_bitmap("./red_3.png");
+    orange = al_load_bitmap("./orange.png");
+    orange_1 = al_load_bitmap("./orange_1.png");
+    orange_2 = al_load_bitmap("./orange_2.png");
+    orange_3 = al_load_bitmap("./orange_3.png");
+    purple = al_load_bitmap("./purple.png");
+    purple_1 = al_load_bitmap("./purple_1.png");
+    purple_2 = al_load_bitmap("./purple_2.png");
+    purple_3 = al_load_bitmap("./purple_3.png");
+    green = al_load_bitmap("./green.png");
+    green_1 = al_load_bitmap("./green_1.png");
+    green_2 = al_load_bitmap("./green_2.png");
+    green_3 = al_load_bitmap("./green_3.png");
+    boom = al_load_bitmap("./bom.jpg");
+    over = al_load_bitmap("./6.jpg");
 
     //background = al_load_sample("sponge.wav"); /* load the background sound file */
     //al_play_sample(background, 1, 0, 1, ALLEGRO_PLAYMODE_LOOP, NULL);
@@ -67,24 +91,36 @@ int main ()
 
     //fill the matrix with picture
 
-    pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
+    pic_fill(stru.body, stru.fun, rows, cols,
+             bitmap, red, orange, purple, green, boom, pongFont,
+             stru.score, times-t,
+             red_1, red_2, red_3, orange_1, orange_2, orange_3,
+             purple_1, purple_2, purple_3, green_1, green_2, green_3);
     //num_fill(rows, cols, pongFont);
+
+    //system("pause");
 
     while(1)
     {
-
         check(rows, cols, stru.body, stru.emp, stru.fun);
 
-        pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
+        pic_fill(stru.body, stru.fun, rows, cols,
+                 bitmap, red, orange, purple, green, boom, pongFont,
+                 stru.score, times-t,
+                 red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                 purple_1, purple_2, purple_3, green_1, green_2, green_3);
 
-        num_fill(rows, cols, pongFont);
+        //num_fill(rows, cols, pongFont);
         //system("pause");
         b=break_point(rows, cols, stru.emp);
 
         printf_matrix2("\n\nyour game:\n\n",rows, cols, stru.body);
         printf_matrix2("\n\nyour check:\n\n", rows, cols, stru.emp);
-        printf_matrix2("\n\nyour function:\n\n", rows, cols, stru.fun);
-        pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
+        pic_fill(stru.body, stru.fun, rows, cols,
+                 bitmap, red, orange, purple, green, boom, pongFont,
+                 stru.score, times-t,
+                 red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                 purple_1, purple_2, purple_3, green_1, green_2, green_3);
         num_fill(rows, cols, pongFont);
         //system("pause");
         stru.score=score(rows, cols, stru.score, stru.emp);
@@ -94,8 +130,12 @@ int main ()
         printf_matrix2("\n\nyour check:\n\n",rows, cols, stru.emp);
         printf_matrix2("\n\nyour function:\n\n", rows, cols, stru.fun);
         printf("\nscore:%d\n",stru.score);
-        pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
-        num_fill(rows, cols, pongFont);
+        pic_fill(stru.body, stru.fun, rows, cols,
+                 bitmap, red, orange, purple, green, boom, pongFont,
+                 stru.score, times-t,
+                 red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                 purple_1, purple_2, purple_3, green_1, green_2, green_3);
+        //num_fill(rows, cols, pongFont);
         //system("pause");
         refill(rows, cols, stru.body, stru.emp);
 
@@ -116,20 +156,32 @@ int main ()
             check(rows, cols, stru.body, stru.emp, stru.fun);
             b=break_point(rows, cols, stru.emp);
 
-            pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
-            num_fill(rows, cols, pongFont);
+            pic_fill(stru.body, stru.fun, rows, cols,
+                     bitmap, red, orange, purple, green, boom, pongFont,
+                     stru.score, times-t,
+                     red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                     purple_1, purple_2, purple_3, green_1, green_2, green_3);
+            //num_fill(rows, cols, pongFont);
 
             stru.score=score(rows, cols, stru.score, stru.emp);
             clear(rows, cols, stru.body, stru.emp);
 
             initialize_mat2D(stru.emp, rows, cols);
             printf("\nscore:%d\n",stru.score);
-            pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
-            num_fill(rows, cols, pongFont);
+            pic_fill(stru.body, stru.fun, rows, cols,
+                     bitmap, red, orange, purple, green, boom, pongFont,
+                     stru.score, times-t,
+                     red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                     purple_1, purple_2, purple_3, green_1, green_2, green_3);
+            //num_fill(rows, cols, pongFont);
             refill(rows, cols, stru.body, stru.emp);
-            pic_fill(stru.body, rows, cols, bitmap, bitmap1, bitmap2, bitmap3, bitmap4, bitmap5, pongFont, stru.score, times-t);
+            pic_fill(stru.body, stru.fun, rows, cols,
+                     bitmap, red, orange, purple, green, boom, pongFont,
+                     stru.score, times-t,
+                     red_1, red_2, red_3, orange_1, orange_2, orange_3,
+                     purple_1, purple_2, purple_3, green_1, green_2, green_3);
 
-            num_fill(rows, cols, pongFont);
+            //num_fill(rows, cols, pongFont);
 
             if(b==0)
             {
@@ -143,7 +195,7 @@ int main ()
 
         if(t==times)
         {
-            al_draw_bitmap(bitmap6, 45, 0, 0);
+            al_draw_bitmap(over, 45, 0, 0);
             al_draw_textf( pongFont, al_map_rgb(55, 55, 255), 330, 400, -1, "Player Score: %d",stru.score);
 
             al_flip_display();
@@ -159,8 +211,8 @@ int main ()
     }
 
     form a[10];
-    int num=NULL ;
-    char nam=NULL ;
+    int num = NULL;
+    char nam = NULL;
     time_t timep;
     struct tm *p;
 
@@ -190,12 +242,24 @@ int main ()
 
     // Cleanup
     al_destroy_bitmap(bitmap);
-    al_destroy_bitmap(bitmap1);
-    al_destroy_bitmap(bitmap2);
-    al_destroy_bitmap(bitmap3);
-    al_destroy_bitmap(bitmap4);
-    al_destroy_bitmap(bitmap5);
-    al_destroy_bitmap(bitmap6);
+    al_destroy_bitmap(red);
+    al_destroy_bitmap(red_1);
+    al_destroy_bitmap(red_2);
+    al_destroy_bitmap(red_3);
+    al_destroy_bitmap(orange);
+    al_destroy_bitmap(orange_1);
+    al_destroy_bitmap(orange_2);
+    al_destroy_bitmap(orange_3);
+    al_destroy_bitmap(purple);
+    al_destroy_bitmap(purple_1);
+    al_destroy_bitmap(purple_2);
+    al_destroy_bitmap(purple_3);
+    al_destroy_bitmap(green);
+    al_destroy_bitmap(green_1);
+    al_destroy_bitmap(green_2);
+    al_destroy_bitmap(green_3);
+    al_destroy_bitmap(boom);
+    al_destroy_bitmap(over);
     al_destroy_display(display);
     //al_destroy_sample(background); /* destroy the background sound file */
     al_destroy_font(pongFont); /* destroy the font */

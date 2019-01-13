@@ -77,9 +77,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="candy.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="function.c">
 			<Option compilerVar="CC" />
 		</Unit>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 		<Unit filename="function_header.h" />
@@ -88,6 +92,9 @@
 =======
 		<Unit filename="function_header.h" />
 >>>>>>> Stashed changes
+=======
+		<Unit filename="function_header.h" />
+>>>>>>> jojo1
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
