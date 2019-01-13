@@ -19,9 +19,8 @@ int main ()
     stru.fun = create_matrix2(rows, cols);
 
     random_mat2D(stru.body, rows, cols);
-    random_mat2D(stru.fun, rows, cols);
     initialize_mat2D(stru.emp, rows, cols);
-    //initialize_mat2D(stru.fun, rows, cols);
+    initialize_mat2D(stru.fun, rows, cols);
 
     printf("How many times you want to try?");
     scanf("%d", &times);
